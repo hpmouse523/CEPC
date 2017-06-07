@@ -1,0 +1,77 @@
+#ifndef myDetectorConstruction_h
+#define  myDetectorConstruction_h  1
+
+#include "globals.hh"
+#include "G4VUserDetectorConstruction.hh"
+#define PI 3.14159265397
+
+class G4Material;
+class G4Box;
+class G4Trd;
+class G4LogicalVolume;
+class G4VPhysicalVolume;
+class G4Material;
+class G4VPVParameterisation;
+
+class  myDetectorConstruction:  public G4VUserDetectorConstruction
+{      
+	private:
+		void ConstructMaterials();
+		G4Material * Pb;
+		G4Material * Si;
+                G4Material * Al;
+		G4Material * CsI;
+		G4Material * Air;
+		G4Material * Vacuum;
+		G4Material * Casing;
+	        G4Material * NE102;
+                G4Material* LYSO;
+                G4Material* BC420;
+                G4Material* Tyvek;
+                G4Material* Mylar;
+                G4Material* Steel;
+                G4Material* W;
+                G4Material* ArCo2;
+		G4double Casing_thickness;
+
+                
+		G4Box*               solidHallBox;
+		G4LogicalVolume*     logicHallBox;
+		G4VPhysicalVolume*   physiHallBox;
+
+                G4Box*               solidContainer;
+                G4LogicalVolume*     logicContainer;
+                G4VPhysicalVolume*   physiContainer;
+
+		G4Box*               solidCell;
+		G4LogicalVolume*     logicCell;
+		G4VPhysicalVolume*   physiCell;
+
+                G4Box*               solidTyvek;
+                G4LogicalVolume*     logicTyvek;
+                G4VPhysicalVolume*   physiTyvek;
+                
+                G4Box*               solidScin;
+                G4LogicalVolume*     logicScin;
+                G4VPhysicalVolume*   physiScin;
+
+                G4Box*               solidPd;
+                G4LogicalVolume*     logicPd;
+         	G4VPhysicalVolume*   physiPd;
+
+
+                G4VPVParameterisation* crystalParam;
+                G4int    NbOfCrystals;            // Nb of chambers 
+                G4double CrystalWidth;            // width of the chambers
+                G4double CrystalSpacing;
+
+		 
+	public:
+		myDetectorConstruction();
+		~myDetectorConstruction();
+
+	public:
+		G4VPhysicalVolume* Construct();
+};
+#endif
+

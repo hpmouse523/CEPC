@@ -1,0 +1,16 @@
+/gun/particle    e-
+#/gun/direction  0 0  1
+#/gun/position 0. 0. -15 cm
+
+#/gun/energy 1 GeV
+#/run/beamOn 10000
+
+#/gun/energy 100 GeV
+#/run/beamOn 3000
+
+#/gun/energy 300 GeV
+#/run/beamOn 3000
+
+/gun/energy 20 GeV
+/tracking/verbose 0
+/run/beamOn 20
